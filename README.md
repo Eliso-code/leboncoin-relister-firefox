@@ -2,11 +2,19 @@
 
 **English | [Français](README.fr.md)**
 
+[![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
+
 A Chrome extension to quickly relist your ads on leboncoin.fr.
 
 ![Preview](preview.png)
 
 ## 🚀 Installation
+
+### Option 1: From Chrome Web Store (Recommended)
+
+Install directly from the [Chrome Web Store](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
+
+### Option 2: From Source
 
 1. Clone this repository or download it as a ZIP
 2. Open Chrome and go to `chrome://extensions`

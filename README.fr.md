@@ -2,11 +2,19 @@
 
 **[English](README.md) | Français**
 
+[![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
+
 Une extension Chrome pour republier rapidement vos annonces sur leboncoin.fr.
 
 ![Aperçu](preview.png)
 
 ## 🚀 Installation
+
+### Option 1 : Depuis le Chrome Web Store (Recommandé)
+
+Installez directement depuis le [Chrome Web Store](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
+
+### Option 2 : Depuis les sources
 
 1. Clonez ce dépôt ou téléchargez-le en tant que ZIP
 2. Ouvrez Chrome et allez sur `chrome://extensions`
