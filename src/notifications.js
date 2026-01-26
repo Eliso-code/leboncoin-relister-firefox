@@ -9,6 +9,7 @@ import iconImage from '../icons/icon-48.png';
 export const NotificationManager = {
   create(config) {
     const notification = document.createElement('div');
+
     notification.id = config.id;
     notification.style.cssText = `
       position: fixed;
@@ -42,11 +43,13 @@ export const NotificationManager = {
 
   show(notification) {
     document.body.appendChild(notification);
+
     return notification;
   },
 
   remove(id) {
     const notification = document.getElementById(id);
+
     notification?.remove();
   },
 

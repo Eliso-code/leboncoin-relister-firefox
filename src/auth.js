@@ -9,13 +9,14 @@ import { CONFIG } from './config.js';
 export const getAuthToken = () => {
   const cookieName = 'luat';
   const token = getCookie(cookieName) || localStorage.getItem(cookieName);
-  
+
   if (!token) {
     const error = new Error('Token d\'authentification non trouvé, essayez de vous reconnecter');
+
     captureError(error, { action: 'getAuthToken' });
     throw error;
   }
-  
+
   return token;
 };
 
@@ -25,6 +26,7 @@ export const buildExperimentHeader = () => {
     version: 1,
     rollout_visitor_id: cnfdVisitorId || ''
   };
+
   return btoa(JSON.stringify(experimentData));
 };
 

@@ -12,9 +12,7 @@ console.log('Leboncoin Republish chargé');
 // URL DETECTION
 // ============================================================================
 
-const isDashboardPage = () => {
-  return window.location.pathname.startsWith('/compte/part/mes-annonces');
-};
+const isDashboardPage = () => window.location.pathname.startsWith('/compte/part/mes-annonces');
 
 // ============================================================================
 // INITIALIZATION
@@ -27,17 +25,19 @@ const initialize = () => {
   // Only initialize if we're on the dashboard page
   if (!isDashboardPage()) {
     console.log('Not on dashboard page, skipping initialization');
+
     return;
   }
 
   // Prevent duplicate initialization
   if (isInitialized) {
     console.log('Already initialized, skipping');
+
     return;
   }
 
   try {
-    captureMessage(`Initializing Leboncoin Republish extension`, LEVELS.info, { version: CONFIG.version });
+    captureMessage('Initializing Leboncoin Republish extension', LEVELS.info, { version: CONFIG.version });
 
     const start = () => {
       observeAdChanges();
@@ -70,7 +70,8 @@ window.addEventListener('popstate', () => {
 
 // Override pushState to detect SPA navigation
 const originalPushState = history.pushState;
-history.pushState = function(...args) {
+
+history.pushState = function (...args) {
   originalPushState.apply(this, args);
   console.log('Navigation detected (pushState)');
   isInitialized = false;
@@ -79,7 +80,8 @@ history.pushState = function(...args) {
 
 // Override replaceState to detect SPA navigation
 const originalReplaceState = history.replaceState;
-history.replaceState = function(...args) {
+
+history.replaceState = function (...args) {
   originalReplaceState.apply(this, args);
   console.log('Navigation detected (replaceState)');
   isInitialized = false;

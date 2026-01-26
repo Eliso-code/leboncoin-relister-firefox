@@ -21,6 +21,7 @@ export const cleanPayload = (adData) => {
   };
 
   CONFIG.readOnlyFields.forEach(field => delete payload[field]);
+
   return payload;
 };
 
@@ -28,9 +29,11 @@ const handleApiResponse = async (response, action) => {
   if (!response.ok) {
     const errorText = await response.text();
     const error = new Error(`Erreur ${action}: ${response.status} ${errorText}`);
+
     captureError(error, { status: response.status, action });
     throw error;
   }
+
   return response;
 };
 
@@ -40,7 +43,7 @@ const handleApiResponse = async (response, action) => {
 
 export const fetchAdData = async (listId) => {
   console.log(`Récupération des données de l'annonce ${listId}...`);
-  captureMessage(`Fetching ad data`, LEVELS.info);
+  captureMessage('Fetching ad data', LEVELS.info);
 
   const authToken = getAuthToken();
   const response = await fetch(CONFIG.api.adData(listId), {
@@ -55,13 +58,15 @@ export const fetchAdData = async (listId) => {
 
   await handleApiResponse(response, 'fetchAdData');
   const data = await response.json();
+
   console.log('✓ Données d\'annonce récupérées');
+
   return data;
 };
 
 export const deleteAd = async (listId) => {
   console.log(`Suppression de l'annonce ${listId}...`);
-  captureMessage(`Deleting ad`, LEVELS.info);
+  captureMessage('Deleting ad', LEVELS.info);
 
   const authToken = getAuthToken();
   const response = await fetch(CONFIG.api.deleteAd, {
@@ -93,6 +98,7 @@ const createAdDraft = async (payload, authToken, experimentHeader) => {
 
   await handleApiResponse(response, 'createAdDraft');
   const data = await response.json();
+
   console.log('✓ Brouillon créé');
 
   if (!data.ad_id) {
@@ -127,6 +133,7 @@ const fetchPricingId = async (adId, actionId, categoryId, authToken, experimentH
 
   await handleApiResponse(response, 'fetchPricingId');
   const data = await response.json();
+
   console.log('✓ Tarification récupérée');
 
   if (!data.pricing_id) {
@@ -166,7 +173,7 @@ const publishAd = async (adId, actionId, adType, pricingId, authToken, experimen
 
 export const createAdViaAPI = async (adData) => {
   console.log('Création de l\'annonce via l\'API...');
-  captureMessage(`Creating ad via API`, LEVELS.info, {
+  captureMessage('Creating ad via API', LEVELS.info, {
     category: adData.category_name,
     price: adData.price
   });
@@ -177,9 +184,11 @@ export const createAdViaAPI = async (adData) => {
 
   const { ad_id, action_id } = await createAdDraft(payload, authToken, experimentHeader);
   const pricing_id = await fetchPricingId(ad_id, action_id, payload.category_id, authToken, experimentHeader);
+
   await publishAd(ad_id, action_id, payload.ad_type, pricing_id, authToken, experimentHeader);
 
-  captureMessage(`Successfully created ad`, LEVELS.info, { price: adData.price });
+  captureMessage('Successfully created ad', LEVELS.info, { price: adData.price });
+
   return ad_id;
 };
 

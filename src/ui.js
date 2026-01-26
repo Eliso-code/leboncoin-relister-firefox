@@ -47,17 +47,20 @@ const confirmRepublish = (adData) => confirm(
 
 const handleRepublishClick = async (listId) => {
   console.log(`Republication de l'annonce ${listId}...`);
-  captureMessage(`Starting republish process`, LEVELS.info);
+  captureMessage('Starting republish process', LEVELS.info);
 
   const loadingNotif = NotificationManager.show(NotificationManager.loading('Chargement des données...'));
 
   try {
     const adData = await fetchAdData(listId);
+
     loadingNotif.remove();
 
     const newPrice = promptForNewPrice(adData.price);
+
     if (newPrice === null) {
-      captureMessage(`Republish cancelled by user`, LEVELS.info);
+      captureMessage('Republish cancelled by user', LEVELS.info);
+
       return;
     }
 
@@ -65,22 +68,26 @@ const handleRepublishClick = async (listId) => {
 
     if (!confirmRepublish(updatedAdData)) {
       console.log('Republication annulée');
-      captureMessage(`Republish cancelled by user confirmation`, LEVELS.info);
+      captureMessage('Republish cancelled by user confirmation', LEVELS.info);
+
       return;
     }
 
     const publishingNotif = NotificationManager.show(NotificationManager.publishing());
     const adId = await createAdViaAPI(updatedAdData);
+
     publishingNotif.remove();
 
     const deletingNotif = NotificationManager.show(NotificationManager.deleting());
+
     await deleteAd(listId);
     deletingNotif.remove();
 
     const successNotif = NotificationManager.show(NotificationManager.success(adId));
+
     NotificationManager.fadeOut(successNotif, CONFIG.delays.notificationFade);
 
-    captureMessage(`Republish completed successfully`, LEVELS.info);
+    captureMessage('Republish completed successfully', LEVELS.info);
   } catch (error) {
     console.error('Erreur de republication:', error);
     captureError(error, {
@@ -91,6 +98,7 @@ const handleRepublishClick = async (listId) => {
     NotificationManager.removeMultiple('lbc-loading', 'lbc-deleting', 'lbc-publishing');
 
     const errorNotif = NotificationManager.show(NotificationManager.error(error.message));
+
     setTimeout(() => errorNotif.remove(), CONFIG.delays.notificationError);
   }
 };
@@ -101,6 +109,7 @@ const handleRepublishClick = async (listId) => {
 
 const createRepublishButton = (listId) => {
   const wrapper = document.createElement('div');
+
   wrapper.className = 'shrink-0 grow-0 md:basis-auto basis-[calc(50%-1rem)]';
   wrapper.innerHTML = `
     <button
@@ -117,7 +126,9 @@ const createRepublishButton = (listId) => {
     `;
 
   const button = wrapper.querySelector('button');
+
   button.addEventListener('click', () => handleRepublishClick(listId));
+
   return wrapper;
 };
 
@@ -127,13 +138,22 @@ const shouldInjectButton = (adItem) => {
   }
 
   const adLink = adItem.querySelector(CONFIG.selectors.adLink);
-  if (!adLink) return false;
+
+  if (!adLink) {
+    return false;
+  }
 
   const listId = extractListId(adLink.getAttribute('href'));
-  if (!listId) return false;
+
+  if (!listId) {
+    return false;
+  }
 
   const buttonContainer = adItem.querySelector(CONFIG.selectors.buttonContainer);
-  if (!buttonContainer) return false;
+
+  if (!buttonContainer) {
+    return false;
+  }
 
   return { listId, buttonContainer };
 };
@@ -147,9 +167,11 @@ export const injectRepublishButtons = () => {
 
     adItems.forEach(adItem => {
       const result = shouldInjectButton(adItem);
+
       if (result) {
         const { listId, buttonContainer } = result;
         const republishButton = createRepublishButton(listId);
+
         buttonContainer.appendChild(republishButton);
         injectedCount++;
       }
@@ -157,7 +179,7 @@ export const injectRepublishButtons = () => {
 
     console.log(`✓ ${injectedCount} boutons injectés sur ${adItems.length} annonces`);
     if (injectedCount > 0) {
-      captureMessage(`Injected buttons`, LEVELS.info, { count: injectedCount, total: adItems.length });
+      captureMessage('Injected buttons', LEVELS.info, { count: injectedCount, total: adItems.length });
     }
   } catch (error) {
     captureError(error, { action: 'injectRepublishButtons' });
@@ -171,15 +193,16 @@ export const injectRepublishButtons = () => {
 
 const debouncedInject = debounce(injectRepublishButtons, CONFIG.delays.buttonInjection);
 
-const hasAdContainerChanges = (mutations) => {
-  return mutations.some(mutation =>
-    Array.from(mutation.addedNodes).some(node => {
-      if (node.nodeType !== 1) return false;
-      return node.matches?.(CONFIG.selectors.adContainer) ||
+const hasAdContainerChanges = (mutations) => mutations.some(mutation =>
+  Array.from(mutation.addedNodes).some(node => {
+    if (node.nodeType !== 1) {
+      return false;
+    }
+
+    return node.matches?.(CONFIG.selectors.adContainer) ||
              node.querySelector?.(CONFIG.selectors.adContainer);
-    })
-  );
-};
+  })
+);
 
 export const observeAdChanges = () => {
   const observer = new MutationObserver((mutations) => {
