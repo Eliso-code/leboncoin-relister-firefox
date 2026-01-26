@@ -7,12 +7,15 @@ import { getCookie } from './utils.js';
 import { CONFIG } from './config.js';
 
 export const getAuthToken = () => {
-  const token = getCookie('luat');
+  const cookieName = 'luat';
+  const token = getCookie(cookieName) || localStorage.getItem(cookieName);
+  
   if (!token) {
-    const error = new Error('Token d\'authentification non trouvé');
+    const error = new Error('Token d\'authentification non trouvé, essayez de vous reconnecter');
     captureError(error, { action: 'getAuthToken' });
     throw error;
   }
+  
   return token;
 };
 
