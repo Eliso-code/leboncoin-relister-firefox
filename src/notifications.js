@@ -97,7 +97,7 @@ export const NotificationManager = {
       content: `
         <div style="font-weight: 600; margin-bottom: 6px;">Republication réussie</div>
         <div style="font-size: 12px; color: #a1a1aa;">
-          Annonce #${escapeHtml(String(adId))} créée avec succès
+          Annonce #${escapeHtml(String(adId))} créée avec succès, rafraîchissez la page.
         </div>
       `
     });

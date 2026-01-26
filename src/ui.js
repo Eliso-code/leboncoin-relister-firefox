@@ -81,12 +81,6 @@ const handleRepublishClick = async (listId) => {
     NotificationManager.fadeOut(successNotif, CONFIG.delays.notificationFade);
 
     captureMessage(`Republish completed successfully`, LEVELS.info);
-
-    setTimeout(() => {
-      console.log('Rechargement de la page...');
-      window.location.reload();
-    }, CONFIG.delays.pageReload);
-
   } catch (error) {
     console.error('Erreur de republication:', error);
     captureError(error, {
