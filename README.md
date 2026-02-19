@@ -1,6 +1,6 @@
 # 🔄 LBC ReLister
 
-**[English](README.md) | Français**
+**[English](README.en.md) | Français**
 
 [![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
 
