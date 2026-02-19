@@ -1,57 +1,58 @@
 # 🔄 LBC ReLister
 
-**English | [Français](README.fr.md)**
+**[English](README.md) | Français**
 
 [![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
 
-A Chrome extension to quickly relist your ads on leboncoin.fr.
+Une extension Chrome pour republier rapidement vos annonces sur leboncoin.fr.
 
-![Preview](preview.png)
+![Aperçu](preview.png)
 
 ## 🚀 Installation
 
-### Option 1: From Chrome Web Store (Recommended)
+### Option 1 : Depuis le Chrome Web Store (Recommandé)
 
-Install directly from the [Chrome Web Store](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
+Installez directement depuis le [Chrome Web Store](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
 
-### Option 2: From Source
+### Option 2 : Depuis les sources
 
-1. Clone this repository or download it as a ZIP
-2. Open Chrome and go to `chrome://extensions`
-3. Enable "Developer mode" in the top right
-4. Click "Load unpacked" and select the extension folder
-5. Go to your [Leboncoin dashboard](https://www.leboncoin.fr/compte/part/mes-annonces)
+1. Clonez ce dépôt ou téléchargez-le en tant que ZIP
+2. Ouvrez Chrome et allez sur `chrome://extensions`
+3. Activez le "Mode développeur" en haut à droite
+4. Cliquez sur "Charger l'extension non empaquetée" et sélectionnez le dossier de l'extension
+5. Rendez-vous sur votre [tableau de bord Leboncoin](https://www.leboncoin.fr/compte/part/mes-annonces)
 
-## 📖 Usage
+## 📖 Utilisation
 
-1. Go to your [Leboncoin dashboard](https://www.leboncoin.fr/compte/part/mes-annonces)
-2. Click the **✨ Republish** button next to any ad
-3. Update the price if needed (or keep the current price)
-4. Confirm the action
-5. Wait for the automatic republishing process to complete
+1. Rendez-vous sur votre [tableau de bord Leboncoin](https://www.leboncoin.fr/compte/part/mes-annonces)
+2. Cliquez sur le bouton **✨ Republier** à côté de n'importe quelle annonce
+3. Modifiez le prix si nécessaire (ou conservez le prix actuel)
+4. Confirmez l'action
+5. Attendez que le processus de republication automatique se termine
 
-The extension will:
-- ✅ Delete your old ad
-- ✅ Create a new ad with the same content
-- ✅ Update the price if you modified it
-- ✅ Refresh the dashboard to display the new ad
+L'extension va :
+- ✅ Supprimer votre ancienne annonce
+- ✅ Créer une nouvelle annonce avec le même contenu
+- ✅ Mettre à jour le prix si vous l'avez modifié
+- ✅ Actualiser le tableau de bord pour afficher la nouvelle annonce
 
-## 📝 License
+## 📝 Licence
 
-MIT License - Free to use and modify
+Licence MIT - Libre d'utilisation et de modification
 
-## ☕ Support
+## ☕ Soutien
 
-If you find this extension useful, consider supporting the project:
-- ⭐ Star this repository
-- 🐛 Report bugs
-- 💡 Suggest features
-- ☕ [Buy me a coffee](https://buymeacoffee.com/valcolncw)
+Si vous trouvez cette extension utile, pensez à soutenir le projet :
+- ⭐ Mettez une étoile à ce dépôt
+- 🐛 Signalez des bugs
+- 💡 Suggérez des fonctionnalités
+- ☕ [Offrez-moi un café](https://buymeacoffee.com/valcolncw)
 
-## ⚠️ Disclaimer
+## ⚠️ Avertissement
 
-This extension is not affiliated with or endorsed by Leboncoin. Use at your own risk. Always respect Leboncoin's Terms of Service.
+Cette extension n'est pas affiliée à Leboncoin et n'est pas approuvée par Leboncoin. Utilisez-la à vos propres risques. Respectez toujours les Conditions d'Utilisation de Leboncoin.
 
 ---
 
-**Made with ❤️ for Leboncoin users**
+**Fait avec ❤️ pour les utilisateurs de Leboncoin**
+
