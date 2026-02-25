@@ -2,9 +2,11 @@
 
 **[English](README.en.md) | Français**
 
-[![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb)
+[![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb) [![Firefox Add-ons](https://i.imgur.com/3VHS9o1.png)](https://addons.mozilla.org/fr/firefox/addon/leboncoin-relister/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
-Une extension Chrome pour republier rapidement vos annonces sur leboncoin.fr.
+> Ce projet est un fork de [leboncoin-relister](https://github.com/valcol/leboncoin-relister).
+
+Une extension Chrome et Firefox pour republier rapidement vos annonces sur leboncoin.fr.
 
 ![Aperçu](preview.png)
 
