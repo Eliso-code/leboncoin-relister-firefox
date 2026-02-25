@@ -2,7 +2,7 @@
 
 **[English](README.en.md) | Français**
 
-[![Chrome Web Store](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png?hl=fr)](https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb) [![Firefox Add-ons](https://i.imgur.com/3VHS9o1.png)](https://addons.mozilla.org/fr/firefox/addon/leboncoin-relister/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+<a href="https://chromewebstore.google.com/detail/leboncoin-relister/hlckpnoilgpepkbandepglpgnecicejb"><img src="https://i.imgur.com/08lA3rB.png" height="58" alt="Chrome Web Store"></a> <a href="https://addons.mozilla.org/fr/firefox/addon/leboncoin-relister/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search"><img src="https://i.imgur.com/Lh6qwbJ.png" height="58" alt="Firefox Add-ons"></a>
 
 > Ce projet est un fork de [leboncoin-relister](https://github.com/valcol/leboncoin-relister).
 
