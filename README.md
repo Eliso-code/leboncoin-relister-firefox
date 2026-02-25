@@ -9,6 +9,7 @@
 Une extension Chrome et Firefox pour republier rapidement vos annonces sur leboncoin.fr.
 
 ![Aperçu](preview.png)
+![Aperçu](preview2.png)
 
 ## 🚀 Installation
 
